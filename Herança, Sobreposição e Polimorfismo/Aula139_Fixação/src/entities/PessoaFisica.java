@@ -7,9 +7,9 @@ public class PessoaFisica extends Contribuinte{
 		super();
 	}
 
-	public PessoaFisica(String name, double rendaAnual) {
+	public PessoaFisica(String name, double rendaAnual, double gastoSaude) {
 		super(name, rendaAnual);
-		
+		this.gastoSaude = gastoSaude;
 	}
 
 	public double getGastoSaude() {
@@ -24,7 +24,7 @@ public class PessoaFisica extends Contribuinte{
 	public double imposto() {
 		double imposto = (rendaAnual <= 20000.0) ? ((this.rendaAnual / 100) * 15) : ((this.rendaAnual / 100) * 25);
 		if (this.gastoSaude > 0) {
-			imposto -= this.gastoSaude / 50.0;
+			imposto -= (this.gastoSaude / 2.0);
 		}
 		return imposto;
 	}

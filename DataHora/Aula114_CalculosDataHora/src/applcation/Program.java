@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 public class Program {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
 		LocalDate dataLocal_1 = LocalDate.now();

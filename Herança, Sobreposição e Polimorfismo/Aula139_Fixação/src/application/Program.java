@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 import entities.Contribuinte;
+import entities.PessoaFisica;
+import entities.PessoaJuridica;
 
 public class Program {
 
@@ -20,20 +22,26 @@ public class Program {
 
 		for(int i = 1; i <= n; i++){
 			System.out.println("Contribuinte #" + i);
-			System.out.println("Nome: ");
+			System.out.print("Nome: ");
 			String nome = sc.next();
-			System.out.println("Renda anual: ");
+			System.out.print("Renda anual: ");
 			double rendaAnual = sc.nextDouble();
-			System.out.println("Pessoa física (F) ou Juridica (J)?");
+			System.out.print("Pessoa física (F) ou Juridica (J)?: ");
 			char resp = sc.next().charAt(0);
 			if(resp == 'F'){
-				System.out.println("Informe gastos com saúde:");
-				
+				System.out.println("Informe gastos com saúde: ");
+				double gastosSaude = sc.nextDouble();
+				listaContribuintes.add(contribuinte = new PessoaFisica(nome, rendaAnual, gastosSaude));
 			}else if(resp == 'J'){
 				System.out.println("Informe a quantidade de funcionários: ");
+				int qtdFuncionarios = sc.nextInt();
+				listaContribuintes.add(contribuinte = new PessoaJuridica(nome, rendaAnual, qtdFuncionarios));
 			}
 		}
 
+		for (Contribuinte con : listaContribuintes) {
+			System.out.println(con);
+		}
 
 		sc.close();
 	}

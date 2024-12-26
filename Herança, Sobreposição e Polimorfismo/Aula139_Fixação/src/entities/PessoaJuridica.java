@@ -23,7 +23,12 @@ public class PessoaJuridica extends Contribuinte{
 	
 		@Override
 	public double imposto() {
-		double imposto = (this.numFuncionarios <= 10) ? ((this.rendaAnual / 100) * 16) : ((this.rendaAnual / 100) * 14);
+		double imposto;
+		if(this.numFuncionarios <= 10){
+			imposto = (this.rendaAnual / 100) * 16;	
+		}else{
+			imposto = (this.rendaAnual / 100) * 14;
+		}
 		return imposto;
 	}
 
